@@ -1,0 +1,6 @@
+{
+  "name": "SHADOWSTRIKE: Tactical Combat Operations",
+  "description": "A 3D first-person tactical shooting game built with Three.js, WebGL, and TypeScript featuring intelligent squad AI, multi-part procedural weapons, campaign missions, survival waves, and full progression.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

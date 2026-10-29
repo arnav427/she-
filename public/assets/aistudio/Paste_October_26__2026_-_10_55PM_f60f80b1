@@ -1,0 +1,1153 @@
+# PROJECT SHADOWSTRIKE 2.0
+
+## REALISTIC 3D TACTICAL SHOOTER — COMPLETE CODE UPGRADE
+
+### ROLE AND MISSION
+
+Act as a senior AAA game development team consisting of:
+
+* A senior Three.js and WebGL graphics engineer.
+* A realistic 3D environment artist.
+* A gameplay and physics programmer.
+* An advanced enemy AI engineer.
+* A tactical combat designer.
+* A procedural animation specialist.
+* A TypeScript and React architect.
+* An audio and sound-design engineer.
+* A performance optimization specialist.
+* A software testing and quality assurance engineer.
+
+You are working on an EXISTING project called:
+
+SHADOWSTRIKE: TACTICAL COMBAT OPERATIONS
+
+Your mission is to transform the existing game into a substantially more realistic, immersive, intelligent, feature-rich 3D first-person shooter that runs in Google Chrome.
+
+This is an upgrade of the existing application, not a request to create a new project from scratch.
+
+Inspect the entire existing codebase before making changes.
+
+Preserve working gameplay systems, existing weapon definitions, enemy AI, missions, progression, settings, and user interface components wherever possible.
+
+Repair existing defects before introducing complicated new systems.
+
+Do not merely describe improvements. Implement them in the actual project files.
+
+The final result must be a playable game, not a static mockup or a collection of decorative UI elements.
+
+---
+
+# PHASE 1 — COMPLETE PROJECT AUDIT
+
+Before editing the project, inspect:
+
+* package.json
+* Application entry points
+* React components
+* Three.js scene creation
+* Game engine and update loop
+* Player controller
+* Camera controller
+* Collision system
+* Weapon system
+* Damage system
+* Enemy AI
+* Enemy navigation
+* Mission manager
+* Dynamic mission generator
+* HUD and minimap
+* Audio manager
+* Save manager
+* Progression and unlock systems
+* Automated tests
+* Styling and responsive layouts
+* Environment configuration
+* Asset-loading logic
+* Deployment configuration
+
+Create an internal dependency map and identify the real source of each major feature.
+
+Find and fix:
+
+1. TypeScript errors.
+2. Runtime exceptions.
+3. Incorrect imports.
+4. Invalid asset paths.
+5. Duplicate event listeners.
+6. Broken collision logic.
+7. Incorrect weapon damage.
+8. Invalid ammunition calculations.
+9. Broken mission objectives.
+10. Incorrect enemy targeting.
+11. Unreachable mission locations.
+12. Save-data corruption.
+13. Memory leaks.
+14. UI overlap.
+15. Incorrect responsive layouts.
+16. Broken pause and restart behavior.
+17. Performance bottlenecks.
+18. Invalid environment configuration.
+
+Important known risk to investigate:
+
+The existing project may execute automated tests when the React application initializes. Its progression tests may write test data through SaveManager into browser local storage.
+
+Verify this behavior. If present, separate automated testing from normal gameplay and ensure tests cannot overwrite the player's real campaign save.
+
+Do not assume an issue is fixed simply because its code was modified. Test the actual result.
+
+After the audit, fix critical defects first.
+
+---
+
+# PHASE 2 — TRANSFORM THE GRAPHICS INTO A REALISTIC 3D WORLD
+
+The current game has a functional low-detail environment, but its visuals are too simplistic.
+
+Upgrade the actual Three.js world.
+
+The target aesthetic is a grounded, realistic tactical military environment with cinematic lighting, believable scale, detailed surfaces, natural atmospheric depth, and readable combat spaces.
+
+Do not simply increase the number of cubes.
+
+Improve the geometry, materials, lighting, composition, animations, and environmental details together.
+
+## 2.1 REALISTIC SKY AND ATMOSPHERE
+
+Replace the nearly black, empty-looking sky with a proper environmental sky system.
+
+Implement:
+
+* A sky dome or suitable sky shader.
+* Physically plausible daylight or nighttime lighting.
+* Environmental ambient illumination.
+* Directional sunlight or moonlight.
+* Atmospheric fog.
+* Distance haze.
+* Natural horizon transitions.
+* Environmental color grading where supported.
+* Optional clouds.
+* Optional dust and smoke particles.
+
+Create a complete lighting setup rather than using a single light source.
+
+Support different environmental presets:
+
+1. Clear daylight.
+2. Golden-hour sunset.
+3. Overcast conditions.
+4. Night operation.
+5. Dusty desert atmosphere.
+
+Use the selected preset consistently across the sky, shadows, terrain, materials, and lighting.
+
+Avoid the current completely black sky unless a properly illuminated nighttime mission is active.
+
+## 2.2 REALISTIC TERRAIN
+
+Replace the flat-looking ground with a more detailed environment.
+
+Implement:
+
+* Terrain elevation variation where appropriate.
+* Procedural ground texture.
+* Dirt, gravel, sand, concrete, and damaged pavement.
+* Surface roughness variation.
+* Small rocks and debris.
+* Ground stains.
+* Tire marks where appropriate.
+* Cracks and worn surfaces.
+* Grass or sparse vegetation in suitable locations.
+* Terrain blending between material types.
+
+Use repeated textures carefully to prevent obvious tiling.
+
+Use procedural texture generation or original, appropriately licensed assets.
+
+Do not depend on unavailable external assets for essential gameplay.
+
+## 2.3 DETAILED BUILDINGS
+
+Upgrade the existing block-shaped buildings into believable architectural structures.
+
+Add appropriate combinations of:
+
+* Concrete and brick surfaces.
+* Metal panels.
+* Doors and windows.
+* Window frames.
+* Roof details.
+* Support beams.
+* Pipes and ventilation systems.
+* Electrical equipment.
+* Exterior lights.
+* Structural supports.
+* Weathering.
+* Surface discoloration.
+* Bullet impact marks.
+* Damaged edges.
+* Debris.
+* Industrial signs.
+* Railings.
+* Stairs and platforms.
+
+Use physically based materials where supported.
+
+Configure appropriate:
+
+* Base color.
+* Roughness.
+* Metalness.
+* Normal maps.
+* Ambient occlusion maps where available.
+* Emissive maps for illuminated objects.
+
+Do not use unsupported material properties and assume they will work automatically.
+
+Ensure all decorative geometry has sensible collision behavior.
+
+Keep the environment playable and avoid narrow, inaccessible gaps.
+
+## 2.4 ENVIRONMENTAL STORYTELLING
+
+Make each combat location look like a place where an event occurred.
+
+Examples:
+
+* Abandoned military equipment.
+* Damaged transport vehicles.
+* Broken lights.
+* Scattered containers.
+* Empty ammunition crates.
+* Damaged security barriers.
+* Abandoned industrial machinery.
+* Warning signs.
+* Emergency lighting.
+* Smoke near damaged structures.
+* Searchlights during night operations.
+* Mission-specific equipment.
+
+Place objects intentionally instead of scattering random props everywhere.
+
+Use mission objectives to influence the environment.
+
+For example, a signal-jammer mission should include visually identifiable jammer equipment that the player can locate and interact with.
+
+---
+
+# PHASE 3 — REALISTIC MATERIALS AND LIGHTING
+
+Implement a consistent physically based rendering workflow.
+
+Use appropriate Three.js materials and lighting.
+
+Where supported, implement:
+
+* Physically based surface materials.
+* Correct color-space handling.
+* Environment maps.
+* Soft shadow filtering.
+* Contact shadows.
+* Normal mapping.
+* Surface roughness.
+* Metallic surfaces.
+* Emissive materials.
+* Selective ambient occlusion.
+* Bloom for appropriate light sources.
+* Tone mapping.
+* Exposure controls.
+* Color grading.
+
+Use shadows carefully.
+
+Do not enable every expensive effect by default if doing so makes the game run poorly.
+
+Provide graphics presets:
+
+LOW:
+
+* Basic lighting.
+* Reduced shadow quality.
+* Minimal particles.
+* No expensive post-processing.
+
+MEDIUM:
+
+* Improved lighting.
+* Moderate shadows.
+* Environmental particles.
+* Limited post-processing.
+
+HIGH:
+
+* Higher-resolution shadows.
+* Better material quality.
+* More environmental details.
+* Improved visual effects.
+
+ULTRA:
+
+* Highest available quality within device capabilities.
+* Enhanced shadows.
+* Higher-quality post-processing.
+* More detailed environmental effects.
+
+Treat these settings as actual rendering configurations, not labels that change nothing.
+
+Check WebGL capabilities and handle unsupported features gracefully.
+
+---
+
+# PHASE 4 — REALISTIC FIRST-PERSON CAMERA
+
+Improve the first-person camera and weapon presentation.
+
+Implement:
+
+* Smooth mouse look.
+* Adjustable field of view.
+* Weapon positioning relative to the camera.
+* Subtle movement sway.
+* Walking bob.
+* Sprint movement.
+* Crouch transitions.
+* Landing feedback.
+* Recoil animation.
+* Aim-down-sights transitions.
+* Weapon switching transitions.
+* Reload animation.
+* Damage feedback.
+* Optional camera shake.
+* Optional motion-reduction settings.
+
+Movement animations must be subtle enough not to interfere with aiming.
+
+Camera behavior must remain stable when the browser window is resized.
+
+Fix pointer-lock behavior and prevent camera controls from interfering with menus.
+
+Do not use excessive camera shaking or unrealistic movement acceleration.
+
+---
+
+# PHASE 5 — REALISTIC WEAPON MODELS
+
+The current weapon presentation is too simple.
+
+Upgrade all existing weapons without removing their established gameplay identities.
+
+Weapon categories include:
+
+* VX-47 assault rifle.
+* M870 shotgun.
+* P226 sidearm.
+* Precision rifle.
+* Submachine gun.
+* Explosive equipment.
+
+Create more convincing models using procedural geometry or suitable original assets.
+
+Improve:
+
+* Weapon silhouettes.
+* Receiver details.
+* Barrels.
+* Sights.
+* Magazine geometry.
+* Grips.
+* Rails.
+* Stocks.
+* Materials.
+* Surface finish.
+* Small mechanical details.
+
+Add:
+
+* Muzzle flash.
+* Recoil.
+* Ejected casings where appropriate.
+* Reload animations.
+* Magazine changes where practical.
+* Weapon sway.
+* Aim-down-sights positioning.
+* Distinct firing sounds.
+* Impact effects.
+* Weapon-specific visual feedback.
+
+Make the shotgun, assault rifle, sidearm, and precision rifle behave differently.
+
+A weapon switch must update the actual combat configuration, HUD, ammunition, animations, and sound.
+
+Do not implement weapon animations that display a reload while ammunition instantly changes without respecting the intended timing.
+
+Keep all weapon properties data-driven.
+
+---
+
+# PHASE 6 — ADVANCED SHOOTING AND COMBAT PHYSICS
+
+Inspect and improve the existing shooting system.
+
+Implement or verify:
+
+* Raycast-based hit detection.
+* Correct camera-to-target aiming.
+* Collision-aware shot evaluation.
+* Weapon-specific fire rates.
+* Magazine capacity.
+* Reserve ammunition.
+* Reload timing.
+* Recoil.
+* Weapon spread.
+* Damage falloff.
+* Projectile or hitscan behavior as appropriate.
+* Headshot multipliers.
+* Armor interactions.
+* Hit markers.
+* Enemy hit reactions.
+* Surface-specific impact effects.
+* Explosion damage falloff.
+* Line-of-sight checks.
+
+Ensure a wall blocks a shot when it lies between the muzzle or appropriate shot origin and the target.
+
+Do not allow bullets to pass through solid objects unintentionally.
+
+Differentiate impacts on:
+
+* Concrete.
+* Metal.
+* Dirt.
+* Glass.
+* Wooden objects.
+* Character hitboxes.
+
+Implement simple penetration only if it is supported by explicit material properties and correct collision logic.
+
+Keep all damage calculations deterministic where possible so they can be tested.
+
+---
+
+# PHASE 7 — ADVANCED ENEMY AI
+
+Upgrade the existing enemy AI instead of replacing it with random behavior.
+
+Enemies must appear observant, tactical, and believable.
+
+Use a well-structured finite-state machine, behavior tree, utility AI system, or a combination.
+
+Implement or improve:
+
+* Patrol.
+* Guard.
+* Suspicion.
+* Investigation.
+* Threat identification.
+* Alert communication.
+* Combat.
+* Cover selection.
+* Flanking.
+* Suppression.
+* Searching.
+* Retreat.
+* Objective defense.
+* Last-known-position tracking.
+* Recovery after losing sight of the player.
+
+## PERCEPTION
+
+Enemy detection must account for:
+
+* Field of view.
+* Distance.
+* Line of sight.
+* Lighting where implemented.
+* Player movement.
+* Noise.
+* Nearby allied alerts.
+* Time since last detection.
+
+Enemies must not see through solid walls.
+
+When line of sight is lost, enemies should search the last known position rather than automatically knowing the player's new position.
+
+## COVER AND TACTICS
+
+Implement tactical cover selection.
+
+Enemies should:
+
+* Evaluate available cover.
+* Avoid exposed positions when appropriate.
+* Change positions when a cover location becomes unsafe.
+* Avoid all choosing the same position.
+* Use flanking routes where available.
+* Coordinate attacks when the game rules permit.
+* Stop pursuing when their behavior or mission rules require them to return to a defensive area.
+
+## PERSONALITIES
+
+Retain the existing enemy classes:
+
+* Guard.
+* Assault.
+* Defender.
+* Scout.
+* Elite.
+
+Give each class meaningful behavioral differences.
+
+Do not make elite enemies unfair by allowing them to track the player through walls or apply unexplained damage bonuses.
+
+## PERFORMANCE
+
+Do not run expensive pathfinding for every enemy on every rendered frame.
+
+Use controlled AI update intervals and navigation caching where appropriate.
+
+Ensure enemies can recover from failed routes.
+
+Test navigation around obstacles and diagonal corners.
+
+---
+
+# PHASE 8 — BETTER CHARACTER MODELS AND ANIMATIONS
+
+Improve the visual quality of the player-facing weapon, enemy characters, and interactive NPCs.
+
+Use suitable 3D models with appropriate licenses.
+
+If detailed external models are unavailable, create consistent procedural characters with better proportions and silhouettes than simple geometric figures.
+
+Where feasible, implement:
+
+* Idle animation.
+* Walking.
+* Running.
+* Crouching.
+* Aiming.
+* Firing.
+* Reloading.
+* Taking damage.
+* Defeat animation.
+* Turning toward threats.
+
+Use skeletal animation when suitable models and animation clips are available.
+
+Do not claim to have realistic skeletal animation if the project only moves rigid geometric parts.
+
+Ensure character movement corresponds to navigation and collision results.
+
+Enemy hitboxes must match the actual character position.
+
+Avoid characters sliding across the ground or rotating unnaturally.
+
+---
+
+# PHASE 9 — INTERACTIVE ENVIRONMENT
+
+Add interactions that improve tactical gameplay.
+
+Possible features:
+
+* Openable doors.
+* Usable consoles.
+* Signal jammers.
+* Supply crates.
+* Ammunition pickups.
+* Health pickups.
+* Objective terminals.
+* Extraction zones.
+* Switchable lights where appropriate.
+* Explosive environmental props.
+* Mission-specific devices.
+
+Interactions must use a consistent interaction system.
+
+Display an interaction prompt when the player is close enough and looking at a valid object.
+
+Require the correct interaction conditions.
+
+For example, a signal jammer must not be marked as disabled until the player completes the required interaction.
+
+Use the existing objective system to update mission progress.
+
+Make it clear which objects are decorative and which are interactive.
+
+---
+
+# PHASE 10 — ADVANCED MISSION SYSTEM
+
+Preserve the existing campaign and mission definitions.
+
+Improve mission reliability and variety.
+
+Implement a polished set of mission types:
+
+1. Eliminate hostile defenders.
+2. Disable multiple signal jammers.
+3. Recover a mission object.
+4. Defend an objective.
+5. Reach an extraction zone.
+6. Survive enemy waves.
+7. Infiltrate a guarded location.
+8. Complete a timed operation.
+9. Protect an allied position where supported.
+10. Complete optional secondary objectives.
+
+Each mission must have:
+
+* A briefing.
+* Clear primary objectives.
+* Optional secondary objectives.
+* Enemy configurations.
+* Appropriate environmental assets.
+* Defined success conditions.
+* Defined failure conditions.
+* Reward calculations.
+* A completion summary.
+
+Mission progression must be based on real interactions and combat results.
+
+Do not mark objectives complete merely because a player enters the mission.
+
+Ensure that all generated mission targets are reachable.
+
+If a mission contains multiple interactive targets, represent and track them individually.
+
+Show the next valid target in the HUD.
+
+Prevent contradictory instructions, such as showing an extraction marker while unfinished mandatory objectives remain.
+
+---
+
+# PHASE 11 — NEW GAME MODES
+
+Implement the following modes incrementally.
+
+## CAMPAIGN
+
+Persistent mission progression with unlocks and mission results.
+
+## SURVIVAL
+
+Increasing enemy waves with ammunition and health management.
+
+## TRAINING
+
+A safe environment for practicing aiming, movement, reloading, and weapon switching.
+
+## TIME ATTACK
+
+Complete a mission within a time limit.
+
+## HARDCORE
+
+Reduced player resources and increased consequences for mistakes, using explicit difficulty rules.
+
+## CUSTOM OPERATION
+
+Allow supported combinations of map, enemy count, and difficulty.
+
+Do not display an option as playable until its actual gameplay logic exists.
+
+Prioritize fully functioning modes rather than empty selection screens.
+
+---
+
+# PHASE 12 — IMPROVED HUD AND UI
+
+The existing HUD has useful components, but some instructions and panels overlap the central view.
+
+Redesign the interface without hiding essential gameplay information.
+
+## TOP LEFT
+
+Display:
+
+* Mission name.
+* Current mission timer.
+* Hostile count.
+* Primary objectives.
+* Objective progress.
+* Secondary objectives where appropriate.
+
+## TOP RIGHT
+
+Display:
+
+* Performance information when enabled.
+* Combat status.
+* Pause button.
+* Minimap or tactical radar.
+
+## CENTER
+
+Display:
+
+* Crosshair.
+* Contextual interaction prompt.
+* Brief mission alerts.
+* Damage feedback.
+* Temporary objective notifications.
+
+Avoid stacking permanent panels directly over the crosshair.
+
+## BOTTOM
+
+Display:
+
+* Health.
+* Armor.
+* Stamina.
+* Current weapon.
+* Magazine ammunition.
+* Reserve ammunition.
+* Weapon slots.
+* Explosive inventory.
+
+## HUD LAYOUT RULES
+
+* Prevent overlapping panels.
+* Use consistent spacing.
+* Keep important combat information readable.
+* Support 16:9 and ultrawide desktop screens.
+* Handle browser resizing.
+* Provide compact and expanded HUD modes.
+* Make the HUD scale sensibly with viewport dimensions.
+* Ensure menus do not intercept mouse movement intended for the game.
+* Ensure interactive UI buttons remain clickable when pointer lock is released.
+
+Create a cohesive tactical visual design using dark translucent panels, restrained accent colors, clear typography, and subtle transitions.
+
+Do not sacrifice readability for decorative effects.
+
+---
+
+# PHASE 13 — ADVANCED MINIMAP
+
+Improve the existing tactical radar.
+
+Display:
+
+* Player position.
+* Player orientation.
+* Nearby enemies where legitimately detected.
+* Mission objectives.
+* Extraction point.
+* Relevant interactive objects.
+* Optional squad indicators if implemented.
+
+The radar must not reveal all enemy locations through walls unless a particular game mode explicitly permits that behavior.
+
+Update the display using actual world positions.
+
+Ensure map scaling and rotation are consistent.
+
+Add an optional expanded tactical map if feasible.
+
+Do not display enemy markers after enemies are defeated.
+
+---
+
+# PHASE 14 — SOUND DESIGN
+
+Improve the existing Web Audio API system or asset-based audio implementation.
+
+Include appropriate sounds for:
+
+* Weapon firing.
+* Reloading.
+* Footsteps.
+* Jumping.
+* Landing.
+* Enemy movement.
+* Enemy alerts.
+* Bullet impacts.
+* Explosions.
+* Doors.
+* Objective interactions.
+* Mission completion.
+* Player damage.
+* Menu interactions.
+* Ambient environmental audio.
+
+Use spatial audio where practical so sounds provide directional information.
+
+Differentiate weapon sounds.
+
+Implement master, music, and effects volume settings.
+
+Respect browser autoplay restrictions.
+
+Stop or pause appropriate sounds when gameplay is paused.
+
+Avoid generating excessive simultaneous audio sources.
+
+Use original, generated, or properly licensed assets.
+
+---
+
+# PHASE 15 — WEATHER AND ENVIRONMENTAL EVENTS
+
+Introduce optional environmental effects.
+
+Possible systems:
+
+* Dust storms.
+* Rain.
+* Light fog.
+* Wind.
+* Smoke.
+* Day/night presets.
+* Moving searchlights.
+* Ambient particles.
+* Environmental lighting changes.
+
+Environmental effects must not be purely decorative if they influence gameplay.
+
+For example, if rain reduces visibility, implement a measurable visibility change in enemy perception.
+
+If weather does not influence gameplay, treat it as a visual effect and describe it accurately.
+
+Make effects optional and performance-aware.
+
+---
+
+# PHASE 16 — PLAYER PROGRESSION AND ARMORY
+
+Preserve the existing progression system.
+
+Improve:
+
+* Mission rewards.
+* Experience calculation.
+* Rank progression.
+* Weapon unlocks.
+* Achievements.
+* Personal statistics.
+* Mission records.
+* Accuracy tracking.
+* Best completion times.
+* Survival records.
+* Loadout configuration.
+
+Ensure unlocks are based on actual achievements.
+
+Prevent duplicate rewards from being granted accidentally when a result screen is reopened.
+
+Validate all saved data.
+
+Do not overwrite the player's real save during automated tests.
+
+Add safe save migrations when the schema changes.
+
+If storage fails, show a clear warning.
+
+Do not require an external database for ordinary local single-player progression.
+
+---
+
+# PHASE 17 — REALISTIC GAME FEEDBACK
+
+Make the game feel responsive without adding excessive effects.
+
+Implement:
+
+* Weapon-specific recoil.
+* Brief muzzle flash.
+* Correct hit indicators.
+* Surface-dependent impact effects.
+* Directional damage feedback.
+* Appropriate enemy reactions.
+* Objective progress notifications.
+* Mission-completion transitions.
+* Clear failure messages.
+* Tactical audio cues.
+* Optional subtle camera effects.
+
+Every visual effect must correspond to an actual game event.
+
+Do not display a hit marker if the shot missed.
+
+Do not play a reload-completion sound if the reload was cancelled.
+
+Do not display a mission success banner before the objective system confirms victory.
+
+---
+
+# PHASE 18 — PERFORMANCE AND MEMORY MANAGEMENT
+
+The game must remain responsive during extended sessions.
+
+Implement:
+
+* Reusable geometries and materials.
+* Object pooling.
+* Controlled particle counts.
+* Efficient collision checks.
+* Controlled AI update rates.
+* Shared assets where appropriate.
+* Resource disposal.
+* Animation-loop cleanup.
+* Visibility-based optimizations.
+* Sensible shadow settings.
+* Efficient asset loading.
+* Graceful error handling.
+
+Measure performance instead of assuming an optimization works.
+
+Avoid unnecessary per-frame allocations.
+
+Prevent duplicate game engines from running simultaneously.
+
+When a mission ends, clean up its temporary resources.
+
+When restarting, reset the mission state without duplicating enemies, timers, event listeners, or audio loops.
+
+Keep low-end hardware in mind.
+
+Provide a helpful message if WebGL is unavailable.
+
+---
+
+# PHASE 19 — RESPONSIVE CHROME SUPPORT
+
+Optimize the desktop game for Google Chrome.
+
+Verify:
+
+* Initial loading.
+* Pointer lock.
+* Mouse sensitivity.
+* Fullscreen.
+* Keyboard input.
+* Window resizing.
+* Browser tab changes.
+* Focus loss.
+* Audio initialization.
+* Pause and resume.
+* Local storage.
+* Refresh and reload.
+* Production deployment.
+
+If mobile or touch support is incomplete, display a clear compatibility message rather than implying that every desktop feature works on mobile.
+
+Ensure the game does not become permanently stuck when the player switches tabs.
+
+---
+
+# PHASE 20 — SECURITY AND EXTERNAL SERVICES
+
+The core game should work without unnecessary API keys.
+
+Use local game logic for real-time combat and enemy movement.
+
+Do not add an external AI API solely to make enemies appear intelligent.
+
+If Gemini integration is genuinely implemented:
+
+* Make privileged API calls through a secure server-side endpoint.
+* Use supported environment variables or the platform's secret management system.
+* Never embed private API keys in browser bundles.
+* Handle API errors.
+* Apply timeouts and sensible request limits.
+* Keep gameplay operational when optional AI services are unavailable.
+
+Inspect the actual code before deciding whether any secret is required.
+
+Do not fabricate credentials or claim that unconfigured services work.
+
+---
+
+# PHASE 21 — AUTOMATED AND MANUAL TESTING
+
+Create and execute tests for:
+
+PLAYER:
+
+* Movement.
+* Jumping.
+* Sprinting.
+* Crouching.
+* Collision.
+* Camera control.
+
+WEAPONS:
+
+* Firing.
+* Ammunition consumption.
+* Reloading.
+* Weapon switching.
+* Damage calculation.
+* Hit detection.
+* Obstacle blocking.
+
+ENEMY AI:
+
+* Detection.
+* Line of sight.
+* Alert behavior.
+* Pathfinding.
+* Cover selection.
+* Loss of player visibility.
+* Recovery from blocked routes.
+
+MISSIONS:
+
+* Objective interactions.
+* Objective counters.
+* Mission success.
+* Mission failure.
+* Extraction.
+* Restart.
+* Dynamic target reachability.
+
+PROGRESSION:
+
+* XP calculations.
+* Unlock conditions.
+* Save and load.
+* Save migration.
+* Invalid save handling.
+* Duplicate reward prevention.
+
+UI:
+
+* Menu navigation.
+* Pause and resume.
+* HUD layout.
+* Pointer lock.
+* Window resizing.
+* Settings persistence.
+
+GRAPHICS:
+
+* WebGL initialization.
+* Sky rendering.
+* Material loading.
+* Lighting.
+* Shadow configuration.
+* Resource cleanup.
+
+TEST SAFETY:
+Automated tests must never overwrite real player save data.
+
+Do not run tests that modify production state when a player simply opens the game.
+
+Run automated tests through a separate testing command or isolated test environment.
+
+---
+
+# PHASE 22 — IMPLEMENTATION ORDER
+
+Follow this sequence.
+
+STEP 1:
+Audit the complete project and identify critical defects.
+
+STEP 2:
+Fix save-data corruption, mission-state errors, and other critical issues.
+
+STEP 3:
+Improve the sky, lighting, materials, terrain, and buildings.
+
+STEP 4:
+Improve weapon models, camera behavior, and combat feedback.
+
+STEP 5:
+Improve enemy AI, navigation, and cover behavior.
+
+STEP 6:
+Improve mission objectives and interactions.
+
+STEP 7:
+Improve the HUD, minimap, and menus.
+
+STEP 8:
+Improve audio, effects, and environmental events.
+
+STEP 9:
+Improve progression and persistence.
+
+STEP 10:
+Optimize rendering and resource cleanup.
+
+STEP 11:
+Run automated tests and a complete browser gameplay test.
+
+STEP 12:
+Build and prepare the deployable application.
+
+After each phase, verify that the game still runs.
+
+Do not attempt to implement every advanced feature simultaneously.
+
+If a requested feature requires substantial assets or infrastructure, implement the most reliable functional version first and clearly document any remaining limitations.
+
+---
+
+# PHASE 23 — FINAL ACCEPTANCE CRITERIA
+
+The upgraded game is acceptable only when the following are verified.
+
+1. The application starts without critical errors.
+2. The 3D world renders correctly.
+3. The sky and environment lighting are coherent.
+4. Buildings and ground use improved materials.
+5. Player movement and collision work.
+6. Mouse look and pointer lock work.
+7. Weapons fire and hit detection is accurate.
+8. Reloading and ammunition behave correctly.
+9. Enemies detect and engage the player appropriately.
+10. Enemies do not see through solid walls.
+11. Enemies can navigate around obstacles.
+12. Mission objectives respond to actual interactions.
+13. Mission victory and failure work.
+14. Pause, resume, and restart work.
+15. The HUD does not obscure essential combat information.
+16. Graphics settings change actual rendering behavior.
+17. Save data survives a page reload.
+18. Automated tests cannot overwrite real progress.
+19. Resources are cleaned up during mission restarts.
+20. No known critical errors remain unaddressed.
+
+Do not mark an acceptance criterion as complete unless it has been verified.
+
+---
+
+# FINAL DELIVERY REQUIREMENTS
+
+After implementation, provide:
+
+1. Summary of the existing code that was preserved.
+2. Summary of the bugs fixed.
+3. List of files changed.
+4. Graphics improvements implemented.
+5. Gameplay features implemented.
+6. AI improvements implemented.
+7. Performance optimizations implemented.
+8. Automated tests executed and their actual results.
+9. Production build status.
+10. Remaining limitations.
+11. Any genuinely required environment variables.
+12. Instructions to run the game.
+13. Instructions to deploy the game.
+
+FINAL COMMAND:
+
+Begin by inspecting the existing SHADOWSTRIKE project.
+
+Fix critical bugs before adding new features.
+
+Transform the existing low-detail environment into a cohesive, detailed, realistic-looking tactical world using actual Three.js geometry, materials, lighting, and visual effects.
+
+Improve gameplay and enemy intelligence without breaking existing functionality.
+
+Implement changes directly in the project.
+
+Test the results.
+
+Do not replace real functionality with mockups, do not fabricate test results, and do not claim that unfinished features are complete.
+
+Deliver the best stable, playable version that the available environment and resources support.
